@@ -14,4 +14,9 @@ export default defineConfig({
     minify: true,
     sourcemap: true,
   },
+  resolve: {
+    alias: {
+      '@public': '/public'
+    }
+  }
 });

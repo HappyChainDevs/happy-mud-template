@@ -6,8 +6,7 @@ import {
   defineMapConfig,
   defineCameraConfig,
 } from "@latticexyz/phaserx";
-import worldTileset from "../../../public/assets/tilesets/world.png";
-import { TileAnimations, Tileset } from "../../artTypes/world";
+import { TileAnimations, Tileset } from "../artTypes/world";
 import { Sprites, Assets, Maps, Scenes, TILE_HEIGHT, TILE_WIDTH, Animations } from "./constants";
 
 const ANIMATION_INTERVAL = 200;
@@ -35,7 +34,7 @@ export const phaserConfig = {
         [Assets.Tileset]: {
           type: AssetType.Image,
           key: Assets.Tileset,
-          path: worldTileset,
+          path: "/assets/tilesets/world.png",
         },
         [Assets.MainAtlas]: {
           type: AssetType.MultiAtlas,
@@ -51,20 +50,20 @@ export const phaserConfig = {
         [Maps.Main]: mainMap,
       },
       sprites: {
-        [Sprites.Soldier]: {
+        [Sprites.Golem]: {
           assetKey: Assets.MainAtlas,
-          frame: "sprites/soldier/idle/0.png",
+          frame: "sprites/golem/idle/0.png",
         },
       },
       animations: [
         {
-          key: Animations.SwordsmanIdle,
+          key: Animations.GolemIdle,
           assetKey: Assets.MainAtlas,
           startFrame: 0,
           endFrame: 3,
           frameRate: 6,
           repeat: -1,
-          prefix: "sprites/soldier/idle/",
+          prefix: "sprites/golem/idle/",
           suffix: ".png",
         },
       ],

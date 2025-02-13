@@ -1,8 +1,8 @@
-import { Tileset } from "../../../artTypes/world";
-import { PhaserLayer } from "../createPhaserLayer";
+import { Tileset } from "../artTypes/world";
 import { createNoise2D } from "simplex-noise";
+import type { PhaserEngine } from "./index";
 
-export function createMapSystem(layer: PhaserLayer) {
+export function createMapSystem(phaser: PhaserEngine) {
   const {
     scenes: {
       Main: {
@@ -11,7 +11,7 @@ export function createMapSystem(layer: PhaserLayer) {
         },
       },
     },
-  } = layer;
+  } = phaser;
 
   const noise = createNoise2D();
 

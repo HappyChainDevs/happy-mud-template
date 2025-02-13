@@ -1,17 +1,15 @@
-import { Sprites } from "../../layers/phaser/constants";
+import { Sprites } from "../../phaser-config/constants";
 import atlasJson from "../../../public/assets/atlases/atlas.json";
-import { useMUD } from "../../store";
+import { usePhaser } from "../../phaser-react";
 
 export const SpriteImage = ({ spriteKey, scale }: { spriteKey: Sprites; scale?: number }) => {
   const {
-    phaserLayer: {
-      scenes: {
-        Main: {
-          config: { sprites },
-        },
-      },
-    },
-  } = useMUD();
+    scenes: {
+      Main: {
+        config: { sprites }
+      }
+    }
+  } = usePhaser();
 
   const imageScale = scale ?? 1;
   const sprite = sprites[spriteKey];
@@ -26,7 +24,7 @@ export const SpriteImage = ({ spriteKey, scale }: { spriteKey: Sprites; scale?: 
     width: `${spriteAtlasEntry.sourceSize.w * imageScale}px`,
     height: `${spriteAtlasEntry.sourceSize.h * imageScale}px`,
     overflow: "hidden",
-    position: "relative",
+    position: "relative"
   } as Record<string, string>;
 
   const imgStyle = {
@@ -41,7 +39,7 @@ export const SpriteImage = ({ spriteKey, scale }: { spriteKey: Sprites; scale?: 
       atlasDimensions.w - (spriteAtlasEntry.frame.x + spriteAtlasEntry.sourceSize.w)
     }px ${atlasDimensions.h - (spriteAtlasEntry.frame.y + spriteAtlasEntry.sourceSize.h)}px ${
       spriteAtlasEntry.frame.x
-    }px)`,
+    }px)`
   } as Record<string, string>;
 
   return (

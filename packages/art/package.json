@@ -2,11 +2,12 @@
   "name": "art",
   "version": "1.0.0",
   "license": "MIT",
+  "type": "module",
   "types": "./types",
   "scripts": {
     "compile-extensions": "tsc ./tiled/extensions/*.ts --outDir ./tiled/extensions/",
-    "export": "yarn generate-multiatlas-sprites && yarn export-tiled-types",
-    "export-tiled-types": "ts-node ./scripts/export-tiled-types.ts && shx cp tilesets/images/* ../client/public/assets/tilesets/",
+    "export": "pnpm generate-multiatlas-sprites && pnpm export-tiled-types",
+    "export-tiled-types": "tsx ./scripts/export-tiled-types.ts && shx cp tilesets/images/* ../client/public/assets/tilesets/",
     "generate-multiatlas-sprites": "node ./scripts/cli.mjs --project ./config-sprites.json"
   },
   "devDependencies": {
@@ -18,8 +19,11 @@
     "free-tex-packer-core": "^0.3.4",
     "glob": "^10.4.2",
     "optimist": "^0.6.1",
-    "ts-node": "^10.8.2",
     "typescript": "5.4.2",
     "xml-js": "^1.6.11"
+  },
+  "dependencies": {
+    "chalk": "^5.4.1",
+    "tsx": "^4.19.2"
   }
 }
